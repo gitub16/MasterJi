@@ -1,1 +1,183 @@
-
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 这里什么都没有</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            background: rgba(0, 20, 0, 0.2);
+            backdrop-filter: blur(5px);
+            max-width: 90%;
+        }
+        
+        .title {
+            font-size: 7rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #0f0;
+            letter-spacing: 5px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #0f0;
+        }
+        
+        .error-code {
+            font-family: 'Courier New', monospace;                                
+            background: rgba(0, 30, 0, 0.5);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-left: 3px solid #0f0;
+            text-align: left;
+            color: #afa;
+        }
+        
+        .terminal {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 15, 0, 0.8);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            border: 1px solid #0f0;
+            text-align: left;
+            color: #afa;
+            position: relative;
+        }
+        
+        .terminal::before {
+            content: "> ";
+            color: #0f0;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;  
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background: #0f0;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #0f0;
+            color: #0f0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix" class="matrix-rain"></canvas>
+    
+    <div class="container">
+        <h1 class="title">404</h1>
+        <h2 class="subtitle">访问 - 目标未找到</h2>
+        
+        <div class="error-code">
+            ERROR 404: RESOURCE_NOT_FOUND<br>
+            STATUS: TERMINAL_PATH_INVALID<br>
+            TIMESTAMP: ${new Date().toISOString()}
+        </div>
+        
+        <div class="terminal">
+            > 这里什么也没有<span class="blink"></span><br>                                                                                                                                                                                                                                                                  
+            > 目标页面不在范围中<br>
+            > 建议: 检查网址或返回主页面
+        </div>
+        
+        <a href="/" class="btn">返回主页面</a>                                                      
+    </div>
+    
+    <script>
+        // 矩阵雨效果
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const chars = "01";
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for(let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = `${fontSize}px monospace`;
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 33);
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;  
+        });
+    </script>
+</body>
+</html>
