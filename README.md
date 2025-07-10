@@ -3,7 +3,7 @@
 <!DOCTYPE html>                                                                                                                                                                                                                                                                  
 <html>
 <head>
-<title> MasterJi  =_= </title>                                                                                                                                                                                                                  
+ MasterJi  =_=                                                                                                                                                                                                                                                   
 </head>
 <body>
     <h1>吉野物语</h1>                                                                                                                                                                                          
