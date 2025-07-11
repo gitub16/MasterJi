@@ -13,36 +13,7 @@
         </header>
         
         <section class="content">
-            <div class="floating-box">
-                <h2>悬浮式框1</h2>
-                <p>这是一个带有动画效果的悬浮框，鼠标悬停时会发生变化。</p>
-            </div>
-            <div class="floating-box">  
-                <h2>悬浮式框2</h2>
-                <p>这是第二个悬浮框，它也会有动画效果。</p>
-            </div>
-            <div class="floating-box">
-                <h2>悬浮式框3</h2>
-                <p>第三个悬浮框，效果与前两个不同。</p>
-            </div>  
-        </section>
-    </div>
-</body>
-<!DOCTYPE html>  
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1 - 生平事迹</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <h1>生平事迹</h1>
-        </header>
-        
-        <section class="content">
+            <!-- 向每个悬浮框添加链接 -->
             <a href="newpage1.html" class="floating-box" id="box1">
                 <h2>悬浮式框1</h2>
                 <p>这是一个带有动画效果的悬浮框，点击后会打开新的页面。</p>
@@ -57,19 +28,19 @@
             </a>
         </section>
     </div>
+
     <script>
-        // 可以在这里添加点击后的 JS 动画效果
+        // 添加点击动画效果
         document.querySelectorAll('.floating-box').forEach(function(box) {
-            box.addEventListener('click', function(e) {  
-                e.preventDefault();  // 阻止默认跳转，执行动画后跳转
+            box.addEventListener('click', function(e) {
+                e.preventDefault();  // 阻止默认跳转，先触发动画
                 this.classList.add('clicked');
                 setTimeout(function() {
+                    // 动画完成后跳转到目标页面
                     window.location.href = box.getAttribute('href');
-                }, 500);  // 动画完成后再跳转
+                }, 500);  // 等待500ms动画完成后跳转
             });
         });
     </script>
 </body>
 </html>
-
-</html>  
