@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <head>
-    <meta charset="UTF-8">                                                                            
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                              
-    <!-- 引用 favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">                    
-    </head>
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-</head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1 - 生平事迹</title>
+    <title>Page 1 - 生平事迹</title>  
+    <!-- 引用 favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">  
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,11 +15,12 @@
         </header>
         
         <section class="content">
-            <!-- 修改后的第一个悬浮框，指向 box.html -->
+            <!-- 添加点击后的动画效果 -->
+            <a href="box.html" class="floating-box" id="box1">                  
                 <h2>卧槽，盒！！</h2>
                 <p>点击后前往“盒”界面。</p>
             </a>
-            <a href="page2.html" class="floating-box" id="box2">
+            <a href="page2.html" class="floating-box" id="box2"> 
                 <h2>前女友</h2>
                 <p>点击后前往尹浩宇前女友的介绍。</p>
             </a>
@@ -37,8 +30,6 @@
             </a>
         </section>
     </div>
-</body>
-</html>
 
     <script>
         // 添加点击动画效果
@@ -55,3 +46,4 @@
     </script>
 </body>
 </html>
+
