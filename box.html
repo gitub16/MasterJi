@@ -19,6 +19,7 @@
             height: 100vh;
             flex-direction: column;
             position: relative;
+            overflow: hidden; /* 防止页面被意外拉伸 */
         }
 
         /* 盒子图标样式 */
@@ -43,6 +44,7 @@
             height: 5px;
             background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
             animation: slideRainbow 2s infinite;
+            display: none; /* 默认不显示 */
         }
 
         @keyframes slideRainbow {
@@ -112,9 +114,10 @@
             var horn = document.getElementById('horn-sound');
             horn.play();
 
-            // 显示彩条（彩条动画已经在CSS中定义）
+            // 显示彩条
             var rainbowBar = document.querySelector('.rainbow-bar');
-            rainbowBar.style.animationPlayState = 'running';
+            rainbowBar.style.display = 'block'; // 显示彩条
+            rainbowBar.style.animationPlayState = 'running'; // 启动动画
 
             // 弹出对话框
             var dialog = document.getElementById('dialog');
@@ -123,7 +126,7 @@
 
         // 关闭对话框的函数
         function closeDialog() {
-            var dialog = document.getElementById('dialog');
+            var dialog = document.getElementById('dialog');        
             dialog.style.display = 'none';
         }
 
