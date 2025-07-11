@@ -1,11 +1,11 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - 这里什么都没有</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }          
         
         body {
             background: #000;
@@ -25,7 +25,7 @@
             z-index: 10;
             padding: 20px;
             border: 1px solid rgba(0, 255, 0, 0.3);
-            background: rgba(0, 20, 0, 0.2);
+            background: rgba(0, 20, 0, 0.2);  
             backdrop-filter: blur(5px);
             max-width: 90%;
         }
@@ -123,7 +123,7 @@
         <h2 class="subtitle">访问 - 目标未找到</h2>
         
         <div class="error-code" id="error-code">
-            ERROR 404: RESOURCE_NOT_FOUND<br>  
+            ERROR 404: RESOURCE_NOT_FOUND<br>  
             STATUS: TERMINAL_PATH_INVALID<br>
             TIMESTAMP: 正在加载...
         </div>
@@ -134,7 +134,7 @@
             > 建议: 检查网址或返回主页面
         </div>
         
-        <a href="index.html" class="btn">返回主页面</a>                                                                                 
+        <button class="btn" onclick="goBack()">返回上一页</button> 
     </div>
     
     <script>
@@ -184,6 +184,11 @@
         errorCodeElement.innerHTML = `ERROR 404: RESOURCE_NOT_FOUND<br>
                                        STATUS: TERMINAL_PATH_INVALID<br>
                                        TIMESTAMP: ${new Date().toISOString()}`;
-    </script>
+        
+        // 点击返回上一页的函数
+        function goBack() {
+            window.history.back();  // 返回上一页
+        }
+    </script>  
 </body>
 </html>
