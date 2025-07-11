@@ -76,3 +76,38 @@ body {
     color: #777;
 }
   
+.options {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.options h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.option-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.option-box {
+    display: block;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.option-box:hover {
+    background-color: #45a049;
+}
+
+.option-box:active {
+    background-color: #388e3c;
+}
