@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
         }
         
         .error-code {
-            font-family: 'Courier New', monospace;                                
+            font-family: 'Courier New', monospace; 
             background: rgba(0, 30, 0, 0.5);
             padding: 15px;
             margin: 20px auto;
@@ -73,7 +73,7 @@
         }
         
         .blink {
-            animation: blink 1s infinite;  
+            animation: blink 1s infinite;
             display: inline-block;
             width: 10px;
             height: 1.2em;
@@ -122,19 +122,19 @@
         <h1 class="title">404</h1>
         <h2 class="subtitle">访问 - 目标未找到</h2>
         
-        <div class="error-code">
+        <div class="error-code" id="error-code">
             ERROR 404: RESOURCE_NOT_FOUND<br>
             STATUS: TERMINAL_PATH_INVALID<br>
-            TIMESTAMP: ${new Date().toISOString()}
+            TIMESTAMP: 正在加载...
         </div>
         
         <div class="terminal">
-            > 这里什么也没有<span class="blink"></span><br>                                                                                                                                                                                                                                                                  
+            > 这里什么也没有<span class="blink"></span><br>
             > 目标页面不在范围中<br>
             > 建议: 检查网址或返回主页面
         </div>
         
-        <a href="/" class="btn">返回主页面</a>                                                      
+        <a href="/" class="btn">返回主页面</a> 
     </div>
     
     <script>
@@ -176,8 +176,14 @@
         
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;  
+            canvas.height = window.innerHeight;
         });
+
+        // 动态生成时间戳
+        const errorCodeElement = document.getElementById("error-code");
+        errorCodeElement.innerHTML = `ERROR 404: RESOURCE_NOT_FOUND<br>
+                                       STATUS: TERMINAL_PATH_INVALID<br>
+                                       TIMESTAMP: ${new Date().toISOString()}`;
     </script>
 </body>
 </html>
